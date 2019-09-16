@@ -1,6 +1,12 @@
 %% ---- R200e1/3
 % Run these one section at a time with the Run Section button. Ensure
 % pro3.m and pro5.m are included in the current folder and are on the path.
+% Sections are denoted by double percentage signs %%
+% For a more accurate analytical solution, change the timestep 
+% e.g. line 121 t = 0:4:55000; where the 16 -> 4 for 4x accuracy
+% For a more accurate numerical solution, change the options
+% of the odeset: higher refinement and lower tolerance
+% both lead to higher accuracy.
 
 % -- Variables
 
@@ -115,7 +121,7 @@ Np0 = -3/2*((M/R)^(1/2))/(R^2)*(1 - 2*M/R)*((1 - 3*M/R)^(-3/2))*Nr0;
 
 % -- Our solution
 
-t = 0:8:55000; 
+t = 0:16:55000; 
 
 y = zeros(length(t), 4);
 y(:,1) = wt*t - s*(nt0*sin(w*t) +  Nt0*t);
