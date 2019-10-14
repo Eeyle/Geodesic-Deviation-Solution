@@ -67,7 +67,8 @@ dqdchi <- function(t, y, parms) {
 	a <- M # lord knows why I used a
 
 	with(as.list(y), {
-		dR <- ( a * p^2 * (p-2-2*e)^(0.5) * (p-2+2*e)^(0.5) ) / ( (p-2-2*e*cos(tfSol*t)) * (1+e*cos(tfSol*t))^2 * (p-6-2*e*cos(tfSol*t))^(0.5) );
+		#dR <- ( a * p^2 * (p-2-2*e)^(0.5) * (p-2+2*e)^(0.5) ) / ( (p-2-2*e*cos(tfSol*t)) * (1+e*cos(tfSol*t))^2 * (p-6-2*e*cos(tfSol*t))^(0.5) );
+		dR <- ( a * (p^2) * (p-2-2*e)^(0.5) * (p-2+2*e)^(0.5) ) / ( (p-2-2*e*cos(tfSol*t)*(1+e*cos(tfSol*t)))^2 * (p-6-2*e*cos(tfSol*t))^(0.5) );
 		dP <- ( p^(1/2) ) / ( (p-6-2*e*cos(tfSol*t))^(1/2) );
 		list(c(dR, dP))
 	})
